@@ -17,6 +17,6 @@ In a world full of monsters, fight your way to victory in this new web game. Usi
 -> **Websocket Data:** As players defeat enemies, their victory will be broadcast to other players in a global log in real time.
 
 ## Image Preview:
-/images/game-login.png
+![This is an image](/images/game-login.png)
 /images/user-page.png
 /images/adventure-page.png
