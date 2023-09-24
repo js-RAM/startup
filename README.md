@@ -23,3 +23,10 @@ In a world full of monsters, fight your way to victory in this new web game. Usi
 ![The User Page](/Images/user-page.png)
 ### Adventure Page:
 ![The Adventure Page](/Images/adventure-page.png)
+
+## Notes:
+
+### Web Server Info:
+> ssh -i [key pair file] ubuntu@[ip address]
+> IP Address: 3.229.66.224
+> Domain Name: cs260game.click
