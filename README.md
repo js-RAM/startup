@@ -11,7 +11,9 @@ In a world full of monsters, fight your way to victory in this new web game. Usi
 
 ## Key Technologies:
 -> **Authentication:** Players will first be directed to a login page that will match their username and password into a database. They will then be directed to their User Page
+
 -> **Database Data:** After logging in, players will be able to see their last 3 attempts as well as a current attempt they can resume if they have saved progress.
+
 -> **Websocket Data:** As players defeat enemies, their victory will be broadcast to other players in a global log in real time.
 
 ## Image Preview:
