@@ -4,8 +4,9 @@ In a world full of monsters, fight your way to victory in this new web game. Usi
 
 ## Key Features:
 - Fight hordes of monsters!
-- Upgrade the stats and moves hero
-- Continue playing through a save
+- Turned based combat
+- Upgrade the stats and moves of your hero
+- Continue playing through saved data
 - See your previous 3 adventures
 - See when other players strike down their foes!
 
