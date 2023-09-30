@@ -32,5 +32,5 @@ In a world full of monsters, fight your way to victory in this new web game. Usi
 - Implemented a basic structure on each page with textual content
 - Put in a placeholder image for enemies in adventure-page.html
 - Login placeholder implemented
-- Created placeholders for database content in user-page.html and adventure=page.html
+- Created placeholders for database content in user-page.html and adventure=page.html. This data is represented with a 'xxx'
 - Created websocket placeholders where realtime communication will go in adventure-page.html
