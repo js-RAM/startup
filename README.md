@@ -24,3 +24,13 @@ In a world full of monsters, fight your way to victory in this new web game. Usi
 ![The User Page](/Images/user-page.png)
 ### Adventure Page:
 ![The Adventure Page](/Images/adventure-page.png)
+
+## Change Notes:
+### 9/30/2023
+- Created html pages for the home page, user page and adventure page
+- Navigation between pages
+- Implemented a basic structure with textual content
+- Put in a placeholder image for enemies
+- Login placeholder implemented
+- Created placeholders for database content
+- Created websocket placeholders where realtime communication will go in adventure-page.html
