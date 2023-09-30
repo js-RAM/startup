@@ -29,8 +29,8 @@ In a world full of monsters, fight your way to victory in this new web game. Usi
 ### 9/30/2023
 - Created html pages for the home page, user page and adventure page
 - Navigation between pages
-- Implemented a basic structure with textual content
-- Put in a placeholder image for enemies
+- Implemented a basic structure on each page with textual content
+- Put in a placeholder image for enemies in adventure-page.html
 - Login placeholder implemented
-- Created placeholders for database content
+- Created placeholders for database content in user-page.html and adventure=page.html
 - Created websocket placeholders where realtime communication will go in adventure-page.html
