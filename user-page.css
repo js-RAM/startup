@@ -1,0 +1,19 @@
+.past-adventure {
+    padding: 0.5em;
+    border-radius: 10px;
+    background-color: rgb(183, 194, 201);
+    margin-right: 4em;
+    margin-left: 1em;
+}
+
+.current-adventure {
+    padding: 0.5em;
+    border-radius: 10px;
+    background-color: rgb(144, 205, 243);
+    margin-left: 1em;
+    margin-right: 4em
+}
+
+.btn {
+    padding-top: 10em;
+}

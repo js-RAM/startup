@@ -4,80 +4,89 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Character Page</title>
-    <link rel="icon" href="favicon.ico" />
-  </head>
-  <body>
-    <header>
-        <h1>CS 260 RPG</h1>
-        <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="user-page.html">Character Page</a></li>
-            <li><a href="adventure-page.html">Your Adventure</a></li>
-        </ul>
-        </nav>
-        <hr /> 
-    </header>
-    <main>
-        <h1> Welcome [Username-Here]</h1>
-        <div style="width: 100%; height: 600px;">  
 
-            <div style="background-color: lightgray; width: 50%; height: 100%; float:left;">  
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="user-page.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="bg-light text-dark">
+    <header class="container-fluid">
+      <nav class="navbar fixed-top navbar-light">
+      <a class="navbar-brand" href="#">CS 260 RPG</a>
+        <menu>
+          <li class = "menu-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class = "menu-item"><a class="nav-link" href="user-page.html">Character Page</a></li>
+          <li class = "menu-item"><a class ="nav-link" href="adventure-page.html">Your Adventure</a></li>
+        </menu>
+      </nav>
+    </header>
+    <main class="container-fluid bg-light">
+        <h1> Welcome [Username-Here]</h1>
+        <div style="width: 100%; margin-left: 2em; margin-right: 2em;">  
+
+            <div style="width: 50%; height: 100%; float:left;">  
                 <h2>Past Adventures:</h2>
-                    <div style="background-color: lightskyblue; width: 33%; height: 25%;">
+                    <div class = "past-adventure">
                         <h5>Made it to Level xx with:</h5>
-                        <ul>
-                            <li>Health: xxx</li>
-                            <li>Strength: xxx</li>
-                            <li>Armor: xxx</li>
-                            <li>Magic: xxx</li>
-                        </ul>
+                        <div class = "container-fluid">
+                            <div>Health: xxx</div>
+                            <div>Strength: xxx</div>
+                            <div>Armor: xxx</div>
+                            <div>Magic: xxx</div>
+                        </div>
                     </div>
                 <p></p>
-                <div style="background-color: lightskyblue; width: 33%; height: 25%;">
+                <div class = "past-adventure">
                     <h5>Made it to Level xx with:</h5>
-                    <ul>
-                        <li>Health: xxx</li>
-                        <li>Strength: xxx</li>
-                        <li>Armor: xxx</li>
-                        <li>Magic: xxx</li>
-                    </ul>
+                    <div class = "container-fluid">
+                        <div>Health: xxx</div>
+                        <div>Strength: xxx</div>
+                        <div>Armor: xxx</div>
+                        <div>Magic: xxx</div>
+                    </div>
                 </div>
                 <p></p>
-                <div style="background-color: lightskyblue; width: 33%; height: 25%;">
+                <div class = "past-adventure">
                     <h5>Made it to Level xx with:</h5>
-                    <ul>
-                        <li>Health: xxx</li>
-                        <li>Strength: xxx</li>
-                        <li>Armor: xxx</li>
-                        <li>Magic: xxx</li>
-                    </ul>
+                    <div class = "container-fluid">
+                        <div>Health: xxx</div>
+                        <div>Strength: xxx</div>
+                        <div>Armor: xxx</div>
+                        <div>Magic: xxx</div>
+                    </div>
                 </div>
             </div>
-            <div style="background-color: gray; width:50%; height: 100%; float:left;">
+            <div style="width:50%; height: 100%; float:left;">
                 <h2>Current Adventure:</h2>
-                <div style="background-color: lightskyblue; width: 100%; height: 50%; float: left;">
+                <div class = "current-adventure">
                     <p></p>
                     <h4>Made it to Level xx with:</h4>
-                    <ul>
-                        <li>Health: xxx</li>
-                        <li>Strength: xxx</li>
-                        <li>Armor: xxx</li>
-                        <li>Magic: xxx</li>
-                    </ul>
+                    <div class = "container-fluid">
+                        <div>Health: xxx</div>
+                        <div>Strength: xxx</div>
+                        <div>Armor: xxx</div>
+                        <div>Magic: xxx</div>
+                    </div>
                 </div>
-                <form method="get" action="adventure-page.html">
+                <form class = "btn" method="get" action="adventure-page.html">
                     <button type="submit">Continue</button>
                     <button type="submit">Start a New Adventure</button>
                 </form>
             </div>
         </div>
     </main>
+
     <footer>
-        <hr />
-        <span class="text-reset">Author: Joshua Swartz</span>
-        <br />
-        <a href="https://github.com/js-RAM/startup">GitHub</a>
-    </footer>
-</body>
-</html>
+        <div>
+          <span class="text-reset">Author Joshua Swartz</span>
+          <a class="text-reset" href="https://github.com/js-RAM/startup">GitHub</a>
+        </div>
+      </footer>
+    </body>
+  </html>
