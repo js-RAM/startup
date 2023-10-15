@@ -1,32 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Adventure Page</title>
-  </head>
-  <body>
-    <header>
-        <h1>CS 260 RPG</h1>
-        <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="user-page.html">Character Page</a></li>
-            <li><a href="adventure-page.html">Your Adventure</a></li>
-        </ul>
-        </nav>
-        <hr /> 
-    </header>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Adventure Page</title>
+    
+        <link rel="stylesheet" href="main.css" />
+        <link rel="stylesheet" href="adventure-page.css">
+    
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+          crossorigin="anonymous"
+        />
+      </head>
+      <body class="bg-light text-dark">
+        <header class="container-fluid">
+          <nav class="navbar fixed-top navbar-light">
+          <a class="navbar-brand" href="#">CS 260 RPG</a>
+            <menu>
+              <li class = "menu-item"><a class="nav-link" href="index.html">Home</a></li>
+              <li class = "menu-item"><a class="nav-link" href="user-page.html">Character Page</a></li>
+              <li class = "menu-item"><a class ="nav-link" href="adventure-page.html">Your Adventure</a></li>
+            </menu>
+          </nav>
+        </header>
     <main>
-        <div style="width: 100%; height: 500px;">
-            <div style="background-color: lightgray; width: 25%; height: 100%; float:left;">
+        <div style="width: 100%; height: 100%;">
+            <div class = "adventure-card">
                 <h3>Character Stats</h3>
                 <p>Health: xxx</p>
                 <p>Strength: xxx</p>
                 <p>Armor: xxx</p>
                 <p>Magic: xxx</p>
             </div>
-            <div style="background-color: gray; width: 25%; height: 100%; float:left;">
+            <div class = "adventure-card">
                 <h3>Player Options</h3>
                 <button type="submit">Attack 1</button>
                 <button type="submit">Attack 2</button>
@@ -38,13 +47,13 @@
                 <button type="submit">Item 1</button>
                 <button type="submit">Item 2</button>
             </div>
-            <div style="background-color: lightgray; width: 25%; height: 100%; float:left;">
+            <div class = "adventure-card text-center">
                 <h3>Enemy Lv. x</h3>
                 <div id="picture" class="enemyImage"><img width="80%" src="Images/Enemies/placeholder.png" alt="random" /></div>
                 <h4>Battle Log</h4>
                 <p> This is where information from the battle will be stored. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor aliquid deleniti eveniet ullam nemo dicta autem!</p>
             </div>
-            <div style="background-color: gray; width: 25%; height: 100%; float:left;">
+            <div class = "adventure-card">
                 <h3>Global Log</h3>
                 <p>Websocket data will be displayed here</p>
                 <p>[Username-1] defeated Lv. xx Enemy</p>
@@ -53,10 +62,10 @@
         </div>
     </main>
     <footer>
-        <hr />
-        <span class="text-reset">Author: Joshua Swartz</span>
-        <br />
-        <a href="https://github.com/js-RAM/startup">GitHub</a>
-    </footer>
-  </body>
-</html>
+        <div>
+          <span class="text-reset">Author Joshua Swartz</span>
+          <a class="text-reset" href="https://github.com/js-RAM/startup">GitHub</a>
+        </div>
+      </footer>
+    </body>
+  </html>

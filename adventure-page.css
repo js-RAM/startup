@@ -1,0 +1,23 @@
+.adventure-card {
+    flex: 1;
+    background-color: lightgray; 
+    max-height: 100%;
+    max-width: 500px;
+    padding: 0.5em;
+    margin-left: 1em;
+    margin-top: 2em;
+    margin-right: 0.5em;
+    border-radius: 10px;
+}
+
+@media (max-width: 1300px) {
+    .adventure-card {
+        float:center;
+    }
+}
+
+@media (min-width: 1300px) {
+    .adventure-card {
+        float:left;
+    }
+}
