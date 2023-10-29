@@ -34,3 +34,9 @@ In a world full of monsters, fight your way to victory in this new web game. Usi
 - Login placeholder implemented
 - Created placeholders for database content in user-page.html and adventure=page.html. This data is represented with a 'xxx'
 - Created websocket placeholders where realtime communication will go in adventure-page.html
+
+### 10/15/2023
+- stylized the header and footer
+- sylized the body in the home, user, and adventure pages
+- Formatted the content so it adjusts with the window size
+- All elements, contents, and images are stylized with CSS
