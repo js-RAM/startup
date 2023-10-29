@@ -40,10 +40,10 @@
             <div class = "adventure-card">
                 <h3>Player Options</h3>
                 <button type="submit" onclick="adventure.attack('strike')">Strike</button>
-                <button type="submit">Fire</button>
+                <button type="submit" onclick="adventure.attack('fire')">Fire</button>
                 <br>
-                <button type="submit">Freeze</button>
-                <button type="submit">Thunder</button>
+                <button type="submit" onclick="adventure.attack('freeze')">Freeze</button>
+                <button type="submit" onclick="adventure.attack('thunder')">Thunder</button>
                 <br>
                 <br>
                 <button type="submit">Item 1</button>
@@ -51,6 +51,7 @@
             </div>
             <div class = "adventure-card text-center">
                 <h3>Enemy Lv. <span class="enemy-lv">x</span></h3>
+                <p>Health: <span class="enemy-health">0</span></p>
                 <div id="picture" class="enemyImage"><img width="80%" src="Images/Enemies/placeholder.png" alt="random" /></div>
                 <h4>Battle Log</h4>
                 <p><span class="battle-log">Battle Log</span></p>
