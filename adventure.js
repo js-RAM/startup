@@ -200,5 +200,12 @@ class Enemy {
     }
 
 }
-
+ 
 adventure = new Adventure();
+
+/*setInterval(() => {
+    const user1 = document.querySelector('#user1');
+    const user2 = doucment.querySelector('#user2');
+    user1.textContent = user2.textContent;
+    user2.textContent = "Username" + " defeated Lv. " + String(Math.floor(Math.random()*100)+1) + " Enemy"
+  }, 5000); */
