@@ -40,3 +40,9 @@ In a world full of monsters, fight your way to victory in this new web game. Usi
 - sylized the body in the home, user, and adventure pages
 - Formatted the content so it adjusts with the window size
 - All elements, contents, and images are stylized with CSS
+
+### 10/28/2023
+- Created javascript for login
+- Created javascript structure for future database
+- Created javascript structure for future websocked
+- Created javascript interaction fo the game
