@@ -31,13 +31,16 @@
 > Domain Name: cs260game.click
 
 ### Study Guide Notes:
+## HTML:
  - Link element: 'Links' external sources to an html document
  - Div tag: creates a division in a block of code
+## CSS:
  - #title: returns the html element with id "title"
  - .grid: returns the html element with the class "grid"
  - Padding: space between content and inner border
  - Margin: space between the border and other outside elements
  - Flexboxes: create flexible elements that resize with scale
+## Javascript:
  - Arrow Functions: shorter way to write functions. Written as name (param) => {code}. The name and param are not necessary. If there is only 1 line of code that returns a value, the return value can replace {code}
  - Span: displays inline with no inherent styling or divisions. Allows you to style certain subelements of an element without disrupting the whole element
  - 
