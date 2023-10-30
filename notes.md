@@ -10,8 +10,8 @@
  - 'pwd': print working directory
  - 'cd': change directory
  - 'ls': List directory (displays files and folders in the the speceified (default: current) directory)
-   -- '-l': long format for 'ls'
-   -- '-a': shows hidden files for 'ls'
+   - - '-l': long format for 'ls'
+   - - '-a': shows hidden files for 'ls'
  - 'vim': Opens text editor vim
  - 'nano': Opens text editor nano
  - 'mkdir': Creates a new director
