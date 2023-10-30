@@ -5,6 +5,14 @@
  -git push //pushes code to github
  -git pull //pushes the most recent 
 
+### Web Server Info:
+> ssh -i [key pair file] ubuntu@[ip address]
+
+> IP Address: 3.229.66.224
+
+> Domain Name: cs260game.click
+
+## Study Guide Notes:
 ### Console Commands:
  - 'chmod': changes file permissions
  - 'pwd': print working directory
@@ -23,24 +31,18 @@
  - 'wget': Web get. Downloads files from the internet
  - 'sudo': Superuser do. It allows authorized users to run commands with root priveledges. Elevates the command or program to admin level access
 
-### Web Server Info:
-> ssh -i [key pair file] ubuntu@[ip address]
-
-> IP Address: 3.229.66.224
-
-> Domain Name: cs260game.click
-
-### Study Guide Notes:
-## HTML:
+### HTML:
  - Link element: 'Links' external sources to an html document
  - Div tag: creates a division in a block of code
-## CSS:
+
+### CSS:
  - #title: returns the html element with id "title"
  - .grid: returns the html element with the class "grid"
  - Padding: space between content and inner border
  - Margin: space between the border and other outside elements
  - Flexboxes: create flexible elements that resize with scale
-## Javascript:
+
+### Javascript:
  - Arrow Functions: shorter way to write functions. Written as name (param) => {code}. The name and param are not necessary. If there is only 1 line of code that returns a value, the return value can replace {code}
  - Span: displays inline with no inherent styling or divisions. Allows you to style certain subelements of an element without disrupting the whole element
  - 
