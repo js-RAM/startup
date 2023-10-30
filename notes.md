@@ -35,6 +35,7 @@
    - Link element: 'Links' external sources to an html document
    - Div tag: creates a division in a block of code
      #### HTML tags:
+      - <ol></ol>: ordered list
   
   ### CSS:
    - #title: returns the html element with id "title"
