@@ -34,6 +34,7 @@
 ### HTML:
  - Link element: 'Links' external sources to an html document
  - Div tag: creates a division in a block of code
+   #### HTML tags:
 
 ### CSS:
  - #title: returns the html element with id "title"
