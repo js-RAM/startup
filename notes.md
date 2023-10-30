@@ -35,12 +35,12 @@
    - 'sudo': Superuser do. It allows authorized users to run commands with root priveledges. Elevates the command or program to admin level access
 
   ### Web Servers:
-    - A certificate is necessary for HTTPS. We use the caddy software to give us this.
-    - Port 443: https protocol
-    - Port 80: http protocol
-    - Port 22: secure shell protocol
-    - DNS A Record: Points a domain to an ip address
-    - DNS CNAME Record: Points a domain to another domain name
+   - A certificate is necessary for HTTPS. We use the caddy software to give us this.
+   - Port 443: https protocol
+   - Port 80: http protocol
+   - Port 22: secure shell protocol
+   - DNS A Record: Points a domain to an ip address
+   - DNS CNAME Record: Points a domain to another domain name
   
   ### HTML:
    - <!DOCTYPE html>: Declares a document as an html file
