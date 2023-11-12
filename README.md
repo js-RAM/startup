@@ -53,4 +53,4 @@ In a world full of monsters, fight your way to victory in this new web game. Usi
 - Frontend calls an inspirational quote api on the front page to inspire prospective adventurers!
 - The backend has service endpoints that allow the players data to be stored on the server
 - The frontend calls these endpoints to store the data
-- Side Note: if you know a 3rd party endpoint that could be used to generate images for the enemies, it would be much appreciatted. I have been looking for one. 
+- Side Note: if you know a 3rd party endpoint that could be used to generate images for the enemies, it would be much appreciated. I have been looking for one. 
