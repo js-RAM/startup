@@ -19,11 +19,11 @@ In a world full of monsters, fight your way to victory in this new web game. Usi
 
 ## Image Preview:
 ### Login Page:
-![The Login Page](/Images/game-login.png)
+![The Login Page](/public/Images/game-login.png)
 ### User Page:
-![The User Page](/Images/user-page.png)
+![The User Page](/public/Images/user-page.png)
 ### Adventure Page:
-![The Adventure Page](/Images/adventure-page.png)
+![The Adventure Page](/public/Images/adventure-page.png)
 
 ## Change Notes:
 ### 9/30/2023
@@ -46,3 +46,11 @@ In a world full of monsters, fight your way to victory in this new web game. Usi
 - Created javascript structure for future database
 - Created javascript structure for future websocked
 - Created javascript interaction fo the game
+
+### 11/12/2023
+- Created an HTTP service via Node.js and Express
+- The frontend is served by express static middleware
+- Frontend calls an inspirational quote api on the front page to inspire prospective adventurers!
+- The backend has service endpoints that allow the players data to be stored on the server
+- The frontend calls these endpoints to store the data
+- Side Note: if you know a 3rd party endpoint that could be used to generate images for the enemies, it would be much appreciatted. I have been looking for one. 
