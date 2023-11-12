@@ -200,7 +200,34 @@ class Enemy {
     }
 
 }
- 
+
+async function populateLocalVariables() {
+    let adventures = [];
+    try {
+        const userName = localStorage.getItem('userName');
+        const response = await fetch('/api/adventures/' + userName);
+        adventures = await response.json();
+
+        localStorage.setItem('adventures', JSON.stringify(adventures));
+    } catch {
+        const adventureData = localStorage.getItem('adventures');
+        if (adventureData) {
+            adventures = JSON.parse(adventureData)
+        }
+    }
+    updateLocalVariables();
+}
+
+function updateLocalVariables() {
+    adventures = []
+    const adventureData = localStorage.getItem('adventures');
+    if (adventureData) {
+        adventures = JSON.parse(adventureData);
+        
+    }
+}
+
+populateLocalVariables();
 adventure = new Adventure();
 
 /*setInterval(() => {
