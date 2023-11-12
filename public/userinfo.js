@@ -26,10 +26,10 @@ async function populateAdventures() {
 
 function populateCurrAdvent(adventures) {
     if (adventures.length == 0) {
-        adventures = [{playerHealth: 65, playerStrength: 5, playerArmor: 1, playerMagic: 5, playerMaxMagic: 5}, 
-            {playerHealth: 50, playerStrength: 5, playerArmor: 1, playerMagic: 5, playerMaxMagic: 5}, {playerHealth: 50, playerStrength: 5, playerArmor: 1, playerMagic: 5, playerMaxMagic: 5}];
+        adventures = [{playerHealth: 50, playerStrength: 5, playerArmor: 1, playerMagic: 5, playerMaxMagic: 5, enemyLv:1}];
     }
         let currAdventure = adventures[0]
+        document.querySelector('.curr-lv').textContent = currAdventure.enemyLv;
         document.querySelector('.curr-health').textContent = currAdventure.playerHealth;
         document.querySelector('.curr-stren').textContent = currAdventure.playerStrength;
         document.querySelector('.curr-arm').textContent = currAdventure.playerArmor;
