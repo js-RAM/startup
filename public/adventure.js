@@ -15,6 +15,7 @@ class Adventure {
     battleText;
 
     constructor() {
+        this.populateLocalVariables();
         if (localStorage.getItem('playerHealth') == null) {
             this.newAdventure();
         }
@@ -87,41 +88,64 @@ class Adventure {
             this.updateUI();
         } else {
             this.newAdventure();
-            this.playerHealth = localStorage.getItem('playerHealth');
-            this.playerStrength = localStorage.getItem('playerStrength');
-            this.playerArmor = localStorage.getItem('playerArmor');
-            this.playerMagic = localStorage.getItem('playerMagic');
-            this.playerMaxMagic = localStorage.getItem('playerMaxMagic');
-            this.enemyLv = localStorage.getItem('enemyLv');
-            this.enemyHealth = localStorage.getItem('enemyHealth');
-            this.enemyStrength = localStorage.getItem('enemyStrength');
-            this.enemyArmor = localStorage.getItem('enemyArmor');
-            this.enemyMagic = localStorage.getItem('enemyMagic');
             this.battleText = "Battle Log";
             this.enemy = new Enemy(this.enemyLv, this.enemyHealth, this.enemyStrength, this.enemyArmor, this.enemyMagic);
             this.updateUI();
         }
     }
 
+    async populateLocalVariables() {
+        let adventures = [];
+        const adventureData = localStorage.getItem('adventures');
+        if (adventureData) {
+            adventures = JSON.parse(adventureData)
+        } else {
+            try {
+                const response = await fetch('/api/adventures');
+                adventures = await response.json();
+    
+                localStorage.setItem('adventures', JSON.stringify(adventures));
+            } catch {
+                console.log("Couldn't Fetch!");
+            }
+        }
+           
+        this.updateLocalVariables();
+    }
+    
+    updateLocalVariables() {
+        let adventures = []
+        const adventureData = localStorage.getItem('adventures');
+        if (adventureData) {
+            adventures = JSON.parse(adventureData);
+            let adventure = adventures[0]
+            this.playerHealth = adventure.playerHealth;
+            this.playerStrength = adventure.playerStrength;
+            this.playerArmor = adventure.playerArmor;
+            this.playerMagic = adventure.playerMagic;
+            this.playerMaxMagic = adventure.playerMaxMagic;
+            this.enemyLv = adventure.enemyLv;
+        } else {
+            this.newAdventure();
+        }
+    }
+
     newAdventure() {
-        localStorage.setItem("playerHealth", 50);
-        localStorage.setItem("playerStrength", 5);
-        localStorage.setItem("playerArmor", 1);
-        localStorage.setItem("playerMagic", 5);
-        localStorage.setItem("playerMaxMagic", 5);
-        localStorage.setItem("enemyLv", 1);
-        localStorage.setItem("enemyHealth", 25);
-        localStorage.setItem("enemyStrength", 3);
-        localStorage.setItem("enemyArmor", 1);
-        localStorage.setItem("enemyMagic", 0);
+        this.playerHealth = 50;
+        this.playerStrength = 5;
+        this.playerArmor = 1;
+        this.playerMagic = 5;
+        this.playerMaxMagic = 5;
+        this.enemyLv = 1;
+        this.newEnemy();
+        this.updateData();
     }
 
     newEnemy() {
-        localStorage.setItem("enemyLv", 1.0);
-        localStorage.setItem("enemyHealth", 25);
-        localStorage.setItem("enemyStrength", 3);
-        localStorage.setItem("enemyArmor", 1);
-        localStorage.setItem("enemyMagic", 0);
+        this.enemyHealth = 25;
+        this.enemyStrength = 3;
+        this.enemyArmor = 1;
+        this.enemyMagic = 0;
     }
 
     nextEnemy() {
@@ -203,32 +227,40 @@ class Enemy {
 
 async function populateLocalVariables() {
     let adventures = [];
-    try {
-        const userName = localStorage.getItem('userName');
-        const response = await fetch('/api/adventures/' + userName);
-        adventures = await response.json();
+    const adventureData = localStorage.getItem('adventures');
+    if (adventureData) {
+        adventures = JSON.parse(adventureData)
+    } else {
+        try {
+            const response = await fetch('/api/adventures');
+            adventures = await response.json();
 
-        localStorage.setItem('adventures', JSON.stringify(adventures));
-    } catch {
-        const adventureData = localStorage.getItem('adventures');
-        if (adventureData) {
-            adventures = JSON.parse(adventureData)
+            localStorage.setItem('adventures', JSON.stringify(adventures));
+        } catch {
+            console.log("Couldn't Fetch!");
         }
     }
+       
     updateLocalVariables();
 }
 
 function updateLocalVariables() {
-    adventures = []
+    let adventures = []
     const adventureData = localStorage.getItem('adventures');
     if (adventureData) {
         adventures = JSON.parse(adventureData);
-        
+        let adventure = adventures[0]
+        localStorage.setItem("playerHealth", adventure.playerHealth);
+        localStorage.setItem("playerStrength", adventure.playerStrength);
+        localStorage.setItem("playerArmor", adventure.playerArmor);
+        localStorage.setItem("playerMagic", adventure.playerMagic);
+        localStorage.setItem("playerMaxMagic", adventure.playerMaxMagic);
+        localStorage.setItem("enemyLv", adventure.enemyLv);
+
     }
 }
 
-populateLocalVariables();
-adventure = new Adventure();
+let adventure = new Adventure();
 
 /*setInterval(() => {
     const user1 = document.querySelector('#user1');

@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 // The service port. In production the frontend code is statically hosted by the service on the same port.
-const port = process.argv.length > 2 ? process.argv[2] : 3000;
+const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
 // JSON body parsing using built-in middleware
 app.use(express.json());
@@ -39,7 +39,7 @@ app.listen(port, () => {
 });
 
 //Updates previous play adventures
-let adventures = [];
+let adventures = [{playerHealth: 55, playerStrength: 5, playerArmor: 1, playerMagic: 5, playerMaxMagic: 5, enemyLv: 1}];
 function updateAdventure(newAdventure, adventures) {
   for (let i = 0; i < 3; i++) {
     if (adventures.length > i) {     

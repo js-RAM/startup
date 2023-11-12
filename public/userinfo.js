@@ -6,13 +6,15 @@ playerName.textContent = this.getUserName();
 
 async function populateAdventures() {
     let adventures = [];
+    console.log("Beginning...");
     try {
-        const userName = localStorage.getItem('userName');
-        const response = await fetch('/api/adventure');
+        console.log("Attempting...");
+        const response = await fetch('/api/adventures');
         adventures = await response.json();
-
+        console.log("success");
         localStorage.setItem('adventures', JSON.stringify(adventures));
     } catch {
+        console.log("I am here!")
         const adventureData = localStorage.getItem('adventures');
         if (adventureData) {
             adventures = JSON.parse(adventureData)
@@ -26,7 +28,7 @@ function populateCurrAdvent(adventures) {
     if (adventures.length == 0) {
         adventures = [{playerHealth: 65, playerStrength: 5, playerArmor: 1, playerMagic: 5, playerMaxMagic: 5}, 
             {playerHealth: 50, playerStrength: 5, playerArmor: 1, playerMagic: 5, playerMaxMagic: 5}, {playerHealth: 50, playerStrength: 5, playerArmor: 1, playerMagic: 5, playerMaxMagic: 5}];
-    } 
+    }
         currAdventure = adventures[0]
         document.querySelector('.curr-health').textContent = currAdventure.playerHealth;
         document.querySelector('.curr-stren').textContent = currAdventure.playerStrength;
@@ -61,10 +63,19 @@ function newAdventure() {
 
 function updateDataBase(adventures) {
     localStorage.setItem('adventures',JSON.stringify(adventures));
+    saveData();
 }
 
 async function saveData() {
-    
+    try {
+        const response = await fetch('/api/adventures', {
+          method: 'POST',
+          headers: {'content-type': 'application/json'},
+          body: localStorage.getItem('adventures'),
+        });
+    } catch {
+
+    }
 }
 
 populateAdventures();
