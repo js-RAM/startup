@@ -29,7 +29,7 @@ function populateCurrAdvent(adventures) {
         adventures = [{playerHealth: 65, playerStrength: 5, playerArmor: 1, playerMagic: 5, playerMaxMagic: 5}, 
             {playerHealth: 50, playerStrength: 5, playerArmor: 1, playerMagic: 5, playerMaxMagic: 5}, {playerHealth: 50, playerStrength: 5, playerArmor: 1, playerMagic: 5, playerMaxMagic: 5}];
     }
-        currAdventure = adventures[0]
+        let currAdventure = adventures[0]
         document.querySelector('.curr-health').textContent = currAdventure.playerHealth;
         document.querySelector('.curr-stren').textContent = currAdventure.playerStrength;
         document.querySelector('.curr-arm').textContent = currAdventure.playerArmor;
@@ -42,7 +42,7 @@ function populatePrevAdventures(adventures) {
     for (let i = 1; i < 4; i++) {
         if (adventures.length > i) {
             console.log("I am here")
-            adventure = adventures[i];
+            let adventure = adventures[i];
             document.querySelector('.prev-health' + i).textContent = adventure.playerHealth;
             document.querySelector('.prev-stren' + i).textContent = adventure.playerStrength;
             document.querySelector('.prev-arm' + i).textContent = adventure.playerArmor;
@@ -51,14 +51,26 @@ function populatePrevAdventures(adventures) {
     }
 }
 
-function newAdventure() {
+async function newAdventure() {
     adventures = []
     const adventureData = localStorage.getItem('adventures');
     if (adventureData) {
         adventures = JSON.parse(adventureData);
     }
-    adventures[0] = {playerHealth: 60, playerStrength: 5, playerArmor: 1, playerMagic: 5, playerMaxMagic: 5};
-    updateDataBase(adventures);
+    adventures[0] = {playerHealth: 60, playerStrength: 5, playerArmor: 1, playerMagic: 5, playerMaxMagic: 5, enemyLv: 1};
+    localStorage.setItem('adventures',JSON.stringify(adventures));
+    try {
+        const response = await fetch('/api/adventuress', {
+          method: 'POST',
+          headers: {'content-type': 'application/json'},
+          body: localStorage.getItem('adventures'),
+        });
+        console.log(response);
+    } catch {
+        console.log("Failed to save Data!");
+    } finally {
+        loadNextPage();
+    }
 }
 
 function updateDataBase(adventures) {
@@ -74,8 +86,12 @@ async function saveData() {
           body: localStorage.getItem('adventures'),
         });
     } catch {
-
+        console.log("Failed to save Data!");
     }
+}
+
+function loadNextPage() {
+    window.location.href = "adventure-page.html";
 }
 
 populateAdventures();

@@ -16,25 +16,7 @@ class Adventure {
 
     constructor() {
         this.populateLocalVariables();
-        if (localStorage.getItem('playerHealth') == null) {
-            this.newAdventure();
-        }
-        this.playerHealth = localStorage.getItem('playerHealth');
-        this.playerStrength = localStorage.getItem('playerStrength');
-        this.playerArmor = localStorage.getItem('playerArmor');
-        this.playerMagic = localStorage.getItem('playerMagic');
-        this.playerMaxMagic = localStorage.getItem('playerMaxMagic');
-        if (localStorage.getItem('enemyLv') == null) {
-            this.newEnemy();
-        }
-        this.enemyLv = localStorage.getItem('enemyLv');
-        this.enemyHealth = localStorage.getItem('enemyHealth');
-        this.enemyStrength = localStorage.getItem('enemyStrength');
-        this.enemyArmor = localStorage.getItem('enemyArmor');
-        this.enemyMagic = localStorage.getItem('enemyMagic');
         this.battleText = "Battle Log";
-        this.enemy = new Enemy(this.enemyLv, this.enemyHealth, this.enemyStrength, this.enemyArmor, this.enemyMagic);
-        this.updateUI();
     }
 
     attack(type) {
@@ -42,7 +24,7 @@ class Adventure {
             var damage = 0;
             var effect = '';
             this.battleText = "Battle Log";
-            console.log("Attempted Strike!");
+            //console.log("Attempted Strike!");
             if (type == "strike") {
                 damage = this.playerStrength;
                 this.battleText = "You striked the enemy!";
@@ -84,7 +66,8 @@ class Adventure {
             this.enemyHealth = this.enemy.getHealth();
             if (this.enemy.isDead()) this.nextEnemy();
             if (this.playerHealth <= 0) this.battleText = "YOU DIED! Press an attack to restart...";
-            this.updateData()
+            console.log("Here I am");
+            this.updateData();
             this.updateUI();
         } else {
             this.newAdventure();
@@ -95,22 +78,21 @@ class Adventure {
     }
 
     async populateLocalVariables() {
-        let adventures = [];
-        const adventureData = localStorage.getItem('adventures');
-        if (adventureData) {
-            adventures = JSON.parse(adventureData)
-        } else {
-            try {
-                const response = await fetch('/api/adventures');
-                adventures = await response.json();
-    
-                localStorage.setItem('adventures', JSON.stringify(adventures));
-            } catch {
-                console.log("Couldn't Fetch!");
-            }
+        let adventures = []
+        try {
+            const response = await fetch('/api/adventures');
+            adventures = await response.json();
+
+            localStorage.setItem('adventures', JSON.stringify(adventures));
+            
+        } catch {
+            console.log("Couldn't Fetch!");
+        } finally {
+            console.log("Please see this!");
+            this.updateLocalVariables();
+            this.updateUI();
         }
-           
-        this.updateLocalVariables();
+        
     }
     
     updateLocalVariables() {
@@ -125,6 +107,7 @@ class Adventure {
             this.playerMagic = adventure.playerMagic;
             this.playerMaxMagic = adventure.playerMaxMagic;
             this.enemyLv = adventure.enemyLv;
+            this.generateEnemy();
         } else {
             this.newAdventure();
         }
@@ -146,6 +129,7 @@ class Adventure {
         this.enemyStrength = 3;
         this.enemyArmor = 1;
         this.enemyMagic = 0;
+        this.enemy = new Enemy(this.enemyLv, this.enemyHealth, this.enemyStrength, this.enemyArmor, this.enemyMagic);
     }
 
     nextEnemy() {
@@ -156,6 +140,10 @@ class Adventure {
         if (x == 3) this.playerArmor = Number(this.playerArmor) + 1;
         if (x == 4) this.playerMaxMagic = Math.round(this.playerMaxMagic*1.25);
         this.enemyLv = Number(this.enemyLv)+1.0;
+        this.generateEnemy();
+    }
+
+    generateEnemy() {
         this.enemyHealth = 20 + Math.floor(Math.random()*Number(this.enemyLv) * 5);
         this.enemyStrength = 3 + Number(this.enemyLv);
         this.enemyArmor = 1 + 0.2 * Number(this.enemyLv);
@@ -164,17 +152,23 @@ class Adventure {
         this.enemy = new Enemy(this.enemyLv, this.enemyHealth, this.enemyStrength, this.enemyArmor, this.enemyMagic);
     }
 
-    updateData() {
-        localStorage.setItem("playerHealth", this.playerHealth);
-        localStorage.setItem("playerStrength", this.playerStrength);
-        localStorage.setItem("playerArmor", this.playerArmor);
-        localStorage.setItem("playerMagic", this.playerMagic);
-        localStorage.setItem("playerMaxMagic", this.playerMaxMagic);
-        localStorage.setItem("enemyLv", this.enemyLv);
-        localStorage.setItem("enemyHealth", this.enemyHealth);
-        localStorage.setItem("enemyStrength", this.enemyStrength);
-        localStorage.setItem("enemyArmor", this.enemyArmor);
-        localStorage.setItem("enemyMagic", this.enemyMagic);
+    async updateData() {
+        let adventures = []
+        const adventureData = localStorage.getItem('adventures');
+        adventures = JSON.parse(adventureData);
+        const adventure = {playerHealth: this.playerHealth, playerStrength: this.playerStrength, playerArmor: this.playerArmor, 
+            playerMagic: this.playerMagic, playerMaxMagic: this.playerMaxMagic, enemyLv: this.enemyLv};
+        adventures[0] = adventure;
+        localStorage.setItem('adventures', JSON.stringify(adventures));
+        try {
+            const response = await fetch('/api/adventuress', {
+              method: 'POST',
+              headers: {'content-type': 'application/json'},
+              body: localStorage.getItem('adventures'),
+            });
+        } catch {
+            console.log("Failed to save Data!");
+        }
     }
 
     updateUI() {
@@ -260,7 +254,7 @@ function updateLocalVariables() {
     }
 }
 
-let adventure = new Adventure();
+adventureObj = new Adventure();
 
 /*setInterval(() => {
     const user1 = document.querySelector('#user1');

@@ -25,7 +25,8 @@ apiRouter.post('/adventure', (req, res) => {
   res.send(adventures);
 });
 
-apiRouter.post('/adventures', (req, res) => {
+apiRouter.post('/adventuress', (req, res) => {
+    adventures = req.body;
     res.send(req.body);
   });
 
