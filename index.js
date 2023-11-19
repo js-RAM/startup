@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const DB = require('./database.js');
 
 // The service port. In production the frontend code is statically hosted by the service on the same port.
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
@@ -15,7 +16,12 @@ const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 // GetScores
-apiRouter.get('/adventures', (_req, res) => {
+apiRouter.get('/adventures', async (_req, res) => {
+  let adventures = await DB.getAdventures();
+  console.log(adventures);
+  if (adventures == "[]") {
+    adventures = [{playerHealth: 55, playerStrength: 5, playerArmor: 1, playerMagic: 5, playerMaxMagic: 5, enemyLv: 1}]
+  }
   res.send(adventures);
 });
 
@@ -25,8 +31,8 @@ apiRouter.post('/adventure', (req, res) => {
   res.send(adventures);
 });
 
-apiRouter.post('/adventuress', (req, res) => {
-    adventures = req.body;
+apiRouter.post('/adventuress', async (req, res) => {
+    DB.setAdventures(req.body);
     res.send(req.body);
   });
 
@@ -40,7 +46,6 @@ app.listen(port, () => {
 });
 
 //Updates previous play adventures
-let adventures = [{playerHealth: 55, playerStrength: 5, playerArmor: 1, playerMagic: 5, playerMaxMagic: 5, enemyLv: 1}];
 function updateAdventure(newAdventure, adventures) {
   for (let i = 0; i < 3; i++) {
     if (adventures.length > i) {     
