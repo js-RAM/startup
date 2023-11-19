@@ -40,6 +40,10 @@ menu .menu-item {
   padding:  0.5em;
 }
 
+#playerName {
+  
+}
+
 #quote {
   flex: 0.15;
   background-color: lightgray;
