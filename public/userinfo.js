@@ -52,7 +52,7 @@ function populatePrevAdventures(adventures) {
 }
 
 async function newAdventure() {
-    adventures = []
+    let adventures = []
     const adventureData = localStorage.getItem('adventures');
     if (adventureData) {
         adventures = JSON.parse(adventureData);
@@ -80,10 +80,11 @@ function updateDataBase(adventures) {
 
 async function saveData() {
     try {
+        console.log(JSON.parse(localStorage.getItem('adventures'))[0]);
         const response = await fetch('/api/adventures', {
           method: 'POST',
           headers: {'content-type': 'application/json'},
-          body: localStorage.getItem('adventures'),
+          body: JSON.stringify(JSON.parse(localStorage.getItem('adventures'))[0]),
         });
     } catch {
         console.log("Failed to save Data!");
