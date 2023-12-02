@@ -59,3 +59,8 @@ In a world full of monsters, fight your way to victory in this new web game. Usi
 - MongoDB Atlas database created and implemented
 - Backend endpoints manipulate the data
 - The data is saved and stored in MongoDB
+- Setup login verification
+- Allows new users to be created
+- Verifies users
+- Creditentials stored and retrieved from MongoDB
+- Forced players to login to play
