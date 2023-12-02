@@ -16,6 +16,7 @@ class Adventure {
 
     constructor() {
         this.populateLocalVariables();
+        this.configureWebSocket();
         this.battleText = "Battle Log";
     }
 
@@ -134,6 +135,7 @@ class Adventure {
 
     nextEnemy() {
         this.battleText += "\n The enemy died!"
+        this.broadcastEvent(localStorage.getItem('userName'), this.enemyLv)
         let x = Math.floor(Math.random()*4)+1;
         if (x == 1) this.playerHealth = Math.round(this.playerHealth*2);
         if (x == 2) this.playerStrength = Math.round(this.playerStrength*1.25);
@@ -179,6 +181,30 @@ class Adventure {
         document.querySelector('.enemy-lv').textContent = this.enemyLv;
         document.querySelector('.enemy-health').textContent = this.enemyHealth;
         document.querySelector('.battle-log').textContent = this.battleText;
+    }
+
+    configureWebSocket() {
+        const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+        this.socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+        this.socket.onopen = (event) => {
+            document.querySelector('.connected').textContent = "Connected";
+        };
+        this.socket.onclose = (event) => {
+            document.querySelector('.connected').textContent = "Disconnected";
+        };
+        this.socket.onmessage = async (event) => {
+            const msg = JSON.parse(await event.data.text());
+            document.querySelector('.user2').textContent = document.querySelector('.user1').textContent;
+            document.querySelector('.user1').textContent = msg.from + " defeated a Lv " + msg.value + " monster!";
+        };
+    }
+
+    broadcastEvent(from, value) {
+        const event = {
+            from: from,
+            value: value,
+        };
+        this.socket.send(JSON.stringify(event));
     }
 }
 
