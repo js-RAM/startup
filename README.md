@@ -68,3 +68,4 @@ In a world full of monsters, fight your way to victory in this new web game. Usi
 ### 12/2/2023
 - Created frontend and backend of websocket
 - Data sent and received in adventure.js
+- Data is displayed
