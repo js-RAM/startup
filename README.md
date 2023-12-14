@@ -19,11 +19,11 @@ In a world full of monsters, fight your way to victory in this new web game. Usi
 
 ## Image Preview:
 ### Login Page:
-![The Login Page](/public/Images/game-login.png)
+![The Login Page](/Images/game-login.png)
 ### User Page:
-![The User Page](/public/Images/user-page.png)
+![The User Page](/Images/user-page.png)
 ### Adventure Page:
-![The Adventure Page](/public/Images/adventure-page.png)
+![The Adventure Page](/Images/adventure-page.png)
 
 ## Change Notes:
 ### 9/30/2023
