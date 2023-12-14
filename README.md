@@ -69,3 +69,9 @@ In a world full of monsters, fight your way to victory in this new web game. Usi
 - Created frontend and backend of websocket
 - Data sent and received in adventure.js
 - Data is displayed
+
+### 12/14/2023
+- React App properly bundled and created
+- Functional React Components for the login, user page and adventure page
+- Functional React Router
+- React Hooks implemented
