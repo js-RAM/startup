@@ -313,7 +313,7 @@ export function AdventurePage() {
             <div className = "adventure-card text-center">
                 <h3>Enemy Lv. <span className="enemy-lv">x</span></h3>
                 <p>Health: <span className="enemy-health">0</span></p>
-                <div id="picture" className="enemyImage"><img width="80%" src="Images/Enemies/placeholder.png" alt="random" /></div>
+                <div id="picture" className="enemyImage"><img width="80%" src="/Enemies/placeholder.png" alt="random" /></div>
                 <h4>Battle Log</h4>
                 <p><span className="battle-log">Battle Log</span></p>
             </div>
