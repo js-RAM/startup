@@ -1,0 +1,46 @@
+.past-adventure {
+    padding: 0.5em;
+    border-radius: 10px;
+    background-color: rgb(183, 194, 201);
+    margin-right: 4em;
+    margin-left: 1em;
+}
+
+.player-name {
+    margin: 10px;
+    font-size: xxx-large;
+    font-weight: 500;
+}
+
+.current-adventure {
+    padding: 0.5em;
+    border-radius: 10px;
+    background-color: rgb(144, 205, 243);
+    margin-left: 1em;
+    margin-right: 4em
+}
+.prev-body {
+    width: 50%; 
+    height: 100%; 
+    float:left;
+}
+.curr-body {
+    width:50%; 
+    height: 100%; 
+    float:left;
+}
+.main-body {
+    width: 100%; 
+    height: 100%; 
+    float:left;
+}
+.margin {
+    margin:0.2em;
+}
+.bottom-margin {
+    margin-top: 0.3em;
+}
+
+.btn {
+    padding-top: 10em;
+}
