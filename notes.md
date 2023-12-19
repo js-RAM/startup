@@ -41,7 +41,17 @@
    - Port 22: secure shell protocol
    - DNS A Record: Points a domain to an ip address
    - DNS CNAME Record: Points a domain to another domain name
-  
+   - 300 Status Codes: (redirection)
+   - 400 Status Codes: Client Errors
+   - 500 Status Codes: Server Errors
+   - Content Type HTTP header allows sender to indicate type of media being sent
+
+  ### Cookies
+   - Domain: specifies the domain for which a cookie is valid
+   - Path: sepcifices the domain for which the cookie is valid
+   - SameSite: specifies is the cookie can be sent with cross-site requests
+   - HttpOnly: client side scripts (like client JavaScript) cannot access the cookie
+
   ### HTML:
    - <!DOCTYPE html>: Declares a document as an html file
    - Link element: 'Links' external sources to an html document
@@ -63,4 +73,4 @@
   ### Javascript:
    - Arrow Functions: shorter way to write functions. Written as name (param) => {code}. The name and param are not necessary. If there is only 1 line of code that returns a value, the return value can replace {code}
    - Span: displays inline with no inherent styling or divisions. Allows you to style certain subelements of an element without disrupting the whole element
-   - 
+
