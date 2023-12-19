@@ -53,7 +53,7 @@
    - HttpOnly: client side scripts (like client JavaScript) cannot access the cookie
 
   ### HTML:
-   - <!DOCTYPE html>: Declares a document as an html file
+   - !DOCTYPE html: Declares a document as an html file
    - Link element: 'Links' external sources to an html document
    - Div tag: creates a division in a block of code
    - Image (a href="https://www.example.com")(img src="image.jpg" alt="Description of the image")(/a)
